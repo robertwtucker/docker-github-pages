@@ -17,10 +17,9 @@ ADD Gemfile Gemfile
 RUN bundle config build.nokogiri --use-system-libraries
 RUN bundle install
 
-# Copy source
+# Finish setup
 RUN mkdir -p /srv/app
 WORKDIR /srv/app
-COPY . .
 COPY script/jekyll-serve.sh /usr/local/bin/jekyll-serve.sh
 RUN chmod +x /usr/local/bin/jekyll-serve.sh
 
