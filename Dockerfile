@@ -2,30 +2,16 @@
 # Jekyll container to mirror configuration of GitHub Pages
 #
 
-FROM alpine:3.3
+FROM robertwtucker/ruby-dev:2-node5
 MAINTAINER Robert Tucker <robertwtucker@gmail.com>
 
-ENV BUILD_PACKAGES bash curl-dev build-base libffi-dev zlib-dev libxml2-dev libxslt-dev
-ENV RUBY_PACKAGES ruby ruby-dev ruby-bundler ruby-io-console nodejs python
+ENV GITHUB_GEM_VERSION 44
 
-# Install packages
-RUN apk --no-cache add $BUILD_PACKAGES $RUBY_PACKAGES
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
 
-# Install/cache Jekyll and friends
-WORKDIR /tmp
-ADD Gemfile Gemfile
-RUN bundle config build.nokogiri --use-system-libraries
+COPY Gemfile .
 RUN bundle install
 
-# Finish setup
-RUN mkdir -p /srv/app
-WORKDIR /srv/app
-COPY script/jekyll-serve.sh /usr/local/bin/jekyll-serve.sh
-RUN chmod +x /usr/local/bin/jekyll-serve.sh
-
-# Communication points
-VOLUME ["/srv/app"]
 EXPOSE 4000
-
-# Set default command
-CMD ["/usr/local/bin/jekyll-serve.sh"]
+CMD ["bundle", "exec", "jekyll", "serve", "--force_polling", "-H 0.0.0.0", "-P 4000"]
