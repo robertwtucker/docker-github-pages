@@ -13,4 +13,4 @@ COPY Gemfile Gemfile
 RUN bundle install
 
 EXPOSE 4000
-CMD ["bundle", "exec", "jekyll", "serve", "--incremental", "-H 0.0.0.0", "-P 4000"]
+CMD ["bundle", "exec", "jekyll", "serve", "--incremental", "-H", "0.0.0.0", "-P", "4000"]
