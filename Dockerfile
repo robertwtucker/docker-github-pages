@@ -4,7 +4,7 @@
 FROM robertwtucker/ruby-dev:2-node5
 MAINTAINER Robert Tucker <robertwtucker@gmail.com>
 
-ENV GITHUB_PAGES_GEM_VERSION 52
+ENV GITHUB_PAGES_GEM_VERSION 53
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
