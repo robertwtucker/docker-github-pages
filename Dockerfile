@@ -9,8 +9,9 @@ ENV GITHUB_PAGES_GEM_VERSION 64
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
-COPY Gemfile Gemfile
-RUN bundle install
+RUN gem install --no-document github-pages:${GITHUB_PAGES_GEM_VERSION}
 
+VOLUME [/usr/src/app]
 EXPOSE 4000
-CMD ["bundle", "exec", "jekyll", "serve", "--incremental", "-H", "0.0.0.0", "-P", "4000"]
+
+CMD ["jekyll", "serve", "--watch", "--force_polling", "--incremental", "-H", "0.0.0.0", "-P", "4000"]
