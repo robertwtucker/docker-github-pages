@@ -1,13 +1,19 @@
 #
 # Jekyll container to mirror configuration of GitHub Pages
 #
-FROM robertwtucker/ruby-dev:2-node5
+FROM alpine:3.3
 MAINTAINER Robert Tucker <robertwtucker@gmail.com>
 
 ENV GITHUB_PAGES_GEM_VERSION 68
 
+# Install all the dependencies for Jekyll
+RUN apk --no-cache add bash build-base libffi-dev zlib-dev libxml2-dev libxslt-dev ruby ruby-dev nodejs ruby-rdoc ruby-irb
+
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
+
+# Install nokogiri separately
+RUN gem install --no-document nokogiri -v 1.6.7.2 -- --use-system-libraries
 
 RUN gem install --no-document github-pages:${GITHUB_PAGES_GEM_VERSION}
 
