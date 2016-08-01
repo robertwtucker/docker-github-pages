@@ -1,7 +1,7 @@
 #
 # Jekyll container to mirror configuration of GitHub Pages
 #
-FROM alpine:3.3
+FROM alpine:3.4
 MAINTAINER Robert Tucker <robertwtucker@gmail.com>
 
 ENV GITHUB_PAGES_GEM_VERSION 89
