@@ -4,7 +4,7 @@
 FROM ruby:2.2
 MAINTAINER Robert Tucker <robertwtucker@gmail.com>
 
-ENV GITHUB_PAGES_GEM_VERSION 113
+ENV GITHUB_PAGES_GEM_VERSION 115
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
