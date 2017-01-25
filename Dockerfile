@@ -2,7 +2,6 @@
 # Jekyll container to mirror configuration of GitHub Pages
 #
 FROM ruby:2.2
-MAINTAINER Robert Tucker <robertwtucker@gmail.com>
 
 ENV GITHUB_PAGES_GEM_VERSION 115
 
