@@ -3,7 +3,7 @@
 #
 FROM ruby:2.2
 
-ENV GITHUB_PAGES_GEM_VERSION 117
+ENV GITHUB_PAGES_GEM_VERSION 118
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
