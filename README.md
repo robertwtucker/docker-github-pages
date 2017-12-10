@@ -5,4 +5,4 @@ Docker image for GitHub Pages / Jekyll
 
 ## Supported tags and respective `Dockerfile` links
 
-* [`latest` (*Dockerfile*)](https://github.com/robertwtucker/docker-github-pages/blob/master/Dockerfile) github-pages v168
+* [`latest` (*Dockerfile*)](https://github.com/robertwtucker/docker-github-pages/blob/master/Dockerfile) github-pages v172
